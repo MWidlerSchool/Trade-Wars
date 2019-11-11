@@ -50,3 +50,14 @@ body {
 	box-shadow: 3px 2px;
 	color: black;
 }
+
+/* for paging through panels */
+dir.formPanel
+{
+	text-align: center;
+	width: 100%;
+	display: inline-block;
+	margin-top: 2%;
+	font-size: .8em;
+	font-family: 'Space Mono', monospace;
+}
