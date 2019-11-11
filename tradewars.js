@@ -1,10 +1,10 @@
 // init
 setActiveForm("name-form");
 
-// hide inactive forms, show the active one, gray out the unselected buttons and blue the selected one
+// hide inactive forms, show the active one
 function setActiveForm(targetString)
 {
-	// hide/grey everything
+	// hide everything
 	$(".formPanel").hide();
 	// show the thing with the matching ID
 	$("#" + targetString).show();
@@ -13,7 +13,7 @@ function setActiveForm(targetString)
 // read in player name from name page
 function readInName()
 {
-	// replace with actual code later
 	var playerName = document.getElementById("name-input").value;
+	// test line; replace with actual code later
 	console.log(playerName);
 }
