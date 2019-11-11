@@ -10,3 +10,10 @@ function setActiveForm(targetString)
 	$("#" + targetString).show();
 }
 
+// read in player name from name page
+function readInName()
+{
+	// replace with actual code later
+	var playerName = document.getElementById("name-input").value;
+	console.log(playerName);
+}
