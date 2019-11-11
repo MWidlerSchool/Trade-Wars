@@ -1,20 +1,47 @@
-<!-- link external files -->
-<link rel="stylesheet" type="text/css" href="tradewars.css">
-<link href="https://fonts.googleapis.com/css?family=Space+Mono&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Bungee+Hairline&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"> 
+		<!-- link external files -->
+		<link rel="stylesheet" type="text/css" href="tradewars.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Space+Mono&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Bungee+Hairline&display=swap" rel="stylesheet">
+	</head>
 
-<!-- MAIN PAGE -->
-<!-- main page header - Reads out "TRADE WARS" -->
-<h1 id="startpage-header">TRADE WARS</h1>
+	<body>
+		<!-- MAIN PAGE -->
+		<!-- main page header - Reads out "TRADE WARS" -->
+		<h1 id="startpage-header">TRADE WARS</h1>
 
-<!-- main page form - Grabs name from user -->
-<form id="name-form">
-	<input id="name-input" type="text" placeholder="ENTER NAME HERE"><br>
-	<input id="name-submit" type="submit" value="START GAME"><br>
-</form>
 
-<!-- NAVIGATION PAGE -->
+		<!-- name form - Grabs name from user -->
+		<dir class="formPanel" id="name-form">
+			<input id="name-input" type="text" placeholder="ENTER NAME HERE"><br>
+			<!--<input id="name-submit" type="submit" value="START GAME"><br>-->
+			<button id="nameToNavB" onclick="setActiveForm('nav-form')">Submit</button>
+		</dir>
 
-<!-- TRADE PAGE -->
+		<!-- NAVIGATION PAGE -->
+		<dir class="formPanel" id="nav-form">
+			<p> Navigation Page </p>
+			<button id="navToChatB" onclick="setActiveForm('chat-form')">Go to Chat</button>
+			<button id="navToTradeB" onclick="setActiveForm('trade-form')">Go to Trade</button>
+		</dir>
 
-<!-- CHAT PAGE -->
+		<!-- TRADE PAGE -->
+		<dir class="formPanel" id="trade-form">
+			<p> Trade Page </p>
+			<button id="tradeToNavB" onclick="setActiveForm('nav-form')">Go to Nav</button>
+		</dir>
+
+		<!-- CHAT PAGE -->
+		<dir class="formPanel" id="chat-form">
+			<p> Chat Page </p>
+			<button id="chatToNav" onclick="setActiveForm('nav-form')">Go to Nav</button>
+		</dir>
+	</body>
+
+	<!-- run javascript -->
+	<script type="text/javascript" src="tradewars.js"></script>
+</html>

@@ -50,3 +50,9 @@ body {
 	box-shadow: 3px 2px;
 	color: black;
 }
+
+/* for paging through panels */
+dir.formPanel
+{
+
+}
