@@ -55,6 +55,17 @@ body {
 	color: black;
 }
 
+/* buttons used to navigate between screens */
+.tradeB {
+	font-family: 'Space Mono', monospace;
+	background-color: transparent;
+	border: 3px solid black;
+	box-shadow: 3px 2px;
+	color: black;
+	display: inline-block;
+	margin-bottom: 5%;
+}
+
 #navToChatB {
 	display: block;
 }
@@ -72,6 +83,13 @@ body {
 
 span.halfSpan {
 	display: inline-block;
+	vertical-align: top;
+}
+
+span.thirdSpan {
+	display: inline-block;
+	width: 30%;
+	vertical-align: top;
 }
 
 /* for paging through panels */
@@ -83,6 +101,13 @@ dir.divPanel
 	margin-top: 2%;
 	font-size: .8em;
 	font-family: 'Space Mono', monospace;
+	vertical-align: top;
+}
+
+ul.tradeList
+{
+	width: 100%;
+	border: 1px solid black;
 }
 
 #sectorBoard
