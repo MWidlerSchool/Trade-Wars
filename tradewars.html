@@ -47,14 +47,32 @@
 
 		<!-- TRADE PAGE -->
 		<dir class="divPanel" id="trade-form">
-			<p> Trade Page </p>
-			<button class="changeMenuB" id="tradeToNavB" onclick="setActiveForm('nav-form')">Go to Nav</button>
+			<h2>Trade</h2>
+			<span class="thirdSpan">
+				<h3>Hold</h3>
+				<ul class="tradeList">
+					<li>Empty</li>
+				</ul>
+			</span>
+			<span class="thirdSpan">
+				<div><button class="tradeB" id="tradeBuyB" onclick="">< Buy <</button></div>
+				<div></div> <!-- extra spacing for readability -->
+				<div><button class="tradeB" id="tradeSellB" onclick="">> Sell ></button></div>
+				<div></div> <!-- extra spacing for readability -->
+				<div><button class="changeMenuB" id="tradeToNav" onclick="setActiveForm('nav-form')">Go to Navigation</button></div>
+			</span>
+			<span class="thirdSpan">
+				<h3>Market</h3>
+				<ul class="tradeList">
+					<li>Empty</li>
+				</ul>
+			</span>
 		</dir>
 
 		<!-- CHAT PAGE -->
 		<dir class="divPanel" id="chat-form">
 			<p> Chat Page </p>
-			<button class="changeMenuB" id="chatToNav" onclick="setActiveForm('nav-form')">Go to Nav</button>
+			<button class="changeMenuB" id="chatToNav" onclick="setActiveForm('nav-form')">Go to Navigation</button>
 		</dir>
 	</body>
 
