@@ -56,7 +56,7 @@ body {
 }
 
 /* for paging through panels */
-dir.formPanel
+dir.divPanel
 {
 	text-align: center;
 	width: 100%;

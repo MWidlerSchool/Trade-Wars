@@ -5,7 +5,7 @@ setActiveForm("name-form");
 function setActiveForm(targetString)
 {
 	// hide everything
-	$(".formPanel").hide();
+	$(".divPanel").hide();
 	// show the thing with the matching ID
 	$("#" + targetString).show();
 }
