@@ -38,12 +38,16 @@ body {
 	background-color: transparent;
 }
 
-/* buttons used to navigate between screens */
-.changeMenuB {
+/* positioning for nameToNavB */
+#nameToNavB {
 	padding-left: 2%;
 	padding-right: 2%;
 	padding-top: 1%;
 	padding-bottom: 1%;
+}
+
+/* buttons used to navigate between screens */
+.changeMenuB {
 	font-family: 'Space Mono', monospace;
 	background-color: transparent;
 	border: 3px solid black;
