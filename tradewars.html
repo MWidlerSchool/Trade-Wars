@@ -16,27 +16,27 @@
 
 
 		<!-- name form - Grabs name from user -->
-		<dir class="formPanel" id="name-form">
+		<dir class="divPanel" id="name-form">
 			<input id="name-input" type="text" placeholder="ENTER NAME HERE"><br>
 			<!--<input id="name-submit" type="submit" value="START GAME"><br>-->
 			<button class="changeMenuB" id="nameToNavB" onclick="readInName(), setActiveForm('nav-form')">Submit</button>
 		</dir>
 
 		<!-- NAVIGATION PAGE -->
-		<dir class="formPanel" id="nav-form">
+		<dir class="divPanel" id="nav-form">
 			<p> Navigation Page </p>
 			<button class="changeMenuB" id="navToChatB" onclick="setActiveForm('chat-form')">Go to Chat</button>
 			<button class="changeMenuB" id="navToTradeB" onclick="setActiveForm('trade-form')">Go to Trade</button>
 		</dir>
 
 		<!-- TRADE PAGE -->
-		<dir class="formPanel" id="trade-form">
+		<dir class="divPanel" id="trade-form">
 			<p> Trade Page </p>
 			<button class="changeMenuB" id="tradeToNavB" onclick="setActiveForm('nav-form')">Go to Nav</button>
 		</dir>
 
 		<!-- CHAT PAGE -->
-		<dir class="formPanel" id="chat-form">
+		<dir class="divPanel" id="chat-form">
 			<p> Chat Page </p>
 			<button class="changeMenuB" id="chatToNav" onclick="setActiveForm('nav-form')">Go to Nav</button>
 		</dir>
