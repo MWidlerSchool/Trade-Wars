@@ -65,13 +65,13 @@ body {
 
 #navMessageBoard {
 	display: block;
-	height: 640px;
-	width: 640px;
+	height: 500px;
+	width: 500px;
 	border: 1px solid black;
 }
 
 span.halfSpan {
-	width: 50%;
+	display: inline-block;
 }
 
 /* for paging through panels */
@@ -90,5 +90,4 @@ dir.divPanel
 	height: 500px;
 	width: 500px;
 	border: 1px solid black;
-	style: inline;
 }
