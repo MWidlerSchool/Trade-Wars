@@ -83,11 +83,13 @@ body {
 
 span.halfSpan {
 	display: inline-block;
+	vertical-align: top;
 }
 
 span.thirdSpan {
 	display: inline-block;
 	width: 30%;
+	vertical-align: top;
 }
 
 /* for paging through panels */
@@ -99,13 +101,13 @@ dir.divPanel
 	margin-top: 2%;
 	font-size: .8em;
 	font-family: 'Space Mono', monospace;
+	vertical-align: top;
 }
 
 ul.tradeList
 {
 	width: 100%;
 	border: 1px solid black;
-	vertical-align: top;
 }
 
 #sectorBoard
