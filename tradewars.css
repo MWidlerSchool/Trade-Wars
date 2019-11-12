@@ -66,14 +66,17 @@ body {
 	margin-bottom: 5%;
 }
 
+/* button to switch from navigation to chat */
 #navToChatB {
 	display: block;
 }
 
+/* button to switch from navigation to trade */
 #navToTradeB {
 	display: block;
 }
 
+/* displays message board */
 #navMessageBoard {
 	display: block;
 	height: 500px;
@@ -117,6 +120,7 @@ ul.tradeList
 	border: 1px solid black;
 }
 
+/* chat windows on chat page */
 #chatWindow {
 	position: relative;
 	float: right;
@@ -126,12 +130,14 @@ ul.tradeList
 	background-color: grey;
 }
 
+/* input field for chat */
 #chatInput {
 	position: absolute;
 	right: 20px;
 	bottom: 20px;
 }
 
+/* output for chat */
 #chatOutput {
 	position: absolute;
 	top: 20px;
