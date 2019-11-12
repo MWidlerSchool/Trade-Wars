@@ -56,11 +56,22 @@ body {
 }
 
 #navToChatB {
-	float:right;
+	display: block;
 }
 
 #navToTradeB {
-	float:right;
+	display: block;
+}
+
+#navMessageBoard {
+	display: block;
+	height: 640px;
+	width: 640px;
+	border: 1px solid black;
+}
+
+span.halfSpan {
+	width: 50%;
 }
 
 /* for paging through panels */
@@ -76,8 +87,8 @@ dir.divPanel
 
 #sectorBoard
 {
-	height: 640px;
-	width: 640px;
+	height: 500px;
+	width: 500px;
 	border: 1px solid black;
-	float: left;
+	style: inline;
 }
