@@ -55,6 +55,14 @@ body {
 	color: black;
 }
 
+#navToChatB {
+	float:right;
+}
+
+#navToTradeB {
+	float:right;
+}
+
 /* for paging through panels */
 dir.divPanel
 {
@@ -64,4 +72,12 @@ dir.divPanel
 	margin-top: 2%;
 	font-size: .8em;
 	font-family: 'Space Mono', monospace;
+}
+
+#sectorBoard
+{
+	height: 640px;
+	width: 640px;
+	border: 1px solid black;
+	float: left;
 }
