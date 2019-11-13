@@ -22,7 +22,7 @@ function addButtons()
 		outStr += "<tr>";
 		for(x = 0; x < 10; x++)
 		{
-			outStr += "<td onclick='navButtonPressed(" + x + " , " + y + ")'>?</td>";
+			outStr += "<td  readonly onclick='navButtonPressed(" + x + " , " + y + ")'>?</td>";
 		}
 		outStr += "</tr>";
 	}
