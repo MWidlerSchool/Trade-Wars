@@ -13,17 +13,15 @@
 		<!-- MAIN PAGE -->
 		<!-- main page header - Reads out "TRADE WARS" -->
 		<h1 id="startpage-header">TRADE WARS</h1>
-
-
 		<!-- name form - Grabs name from user -->
 		<dir class="divPanel" id="name-form">
 			<input id="name-input" type="text" placeholder="ENTER NAME HERE"><br>
-			<button class="changeMenuB" id="nameToNavB" onclick="readInName(), setActiveForm('nav-form')">Submit</button>
+			<button class="changeMenuB" id="nameToNavB" onclick="readInName(), setActiveForm('nav-form'), hideMainHeader()">Submit</button>
 		</dir>
 
 		<!-- NAVIGATION PAGE -->
 		<dir class="divPanel" id="nav-form">
-			<h2> Navigation</h2>
+			<h2 class="pageTitles">Navigation</h2>
 			<span class="halfSpan">
 				<table id="sectorBoard"> <!-- inner elements programatically later --> </table>
 			</span>
@@ -36,7 +34,7 @@
 
 		<!-- TRADE PAGE -->
 		<dir class="divPanel" id="trade-form">
-			<h2>Trade</h2>
+			<h2 class="pageTitles">Trade</h2>
 			<span class="thirdSpan">
 				<h3>Hold</h3>
 				<ul class="tradeList">
@@ -44,8 +42,8 @@
 				</ul>
 			</span>
 			<span class="thirdSpan">
-				<div><button class="tradeB" id="tradeBuyB" onclick="">< Buy <</button></div>
-				<div><button class="tradeB" id="tradeSellB" onclick="">> Sell ></button></div>
+				<div><button class="changeMenuB" id="tradeBuyB" onclick="">< Buy <</button></div>
+				<div><button class="changeMenuB" id="tradeSellB" onclick="">> Sell ></button></div>
 				<div><button class="changeMenuB" id="tradeToNav" onclick="setActiveForm('nav-form')">Go to Navigation</button></div>
 			</span>
 			<span class="thirdSpan">
@@ -58,7 +56,7 @@
 
 		<!-- CHAT PAGE -->
 		<dir class="divPanel" id="chat-form">
-			<p> Chat Page </p>
+			<h2 class="pageTitles"> Chat Page </h2>
 			<div id="chatWindow">
 				<input id="chatInput" type="text" placeholder="type message here">
 				<p id="chatOutput">MESSAGES PRINT HERE</p>
