@@ -1,6 +1,8 @@
 body {
 	background-image: url("https://wallpaperaccess.com/full/309403.jpg");
+	background-attachment: fixed;
 	background-size: cover;
+	overflow: hidden;
 }
 
 /* MAIN PAGE STYLING */
