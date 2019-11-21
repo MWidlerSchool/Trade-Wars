@@ -32,9 +32,7 @@ body {
 	height: 10%;
 	text-align: center;
 	font-size: 2.2em;
-	margin: 5%;
-	margin-top: 2%;
-	margin-bottom: 3%;
+	margin-top: 8%;
 	font-family: 'Space Mono', monospace;
 	border: 4px solid black;
 	box-shadow: 5px 3px;
@@ -52,11 +50,12 @@ body {
 /* buttons used to navigate between screens */
 .changeMenuB {
 	font-family: 'Space Mono', monospace;
-	background-color: transparent;
+	background-color: rgba(60, 60, 60, 0.8);
 	border: 3px solid black;
 	box-shadow: 3px 2px;
 	color: black;
-	margin: 2%;
+	padding: 3%;
+	margin: 5%;
 }
 
 /* button to switch from navigation to trade,
@@ -70,7 +69,9 @@ button to switch from navigation to chat*/
 	display: block;
 	height: 200px;
 	width: 200px;
-	border: 1px solid black;
+	border: 3px solid black;
+	box-shadow: 3px 2px;
+	background-color: rgba(220, 220, 220, 0.9);
 }
 
 span.halfSpan {
@@ -89,6 +90,7 @@ dir.divPanel {
 	text-align: center;
 	width: 100%;
 	display: inline-block;
+	padding: 0px;
 	margin-top: 2%;
 	font-size: .8em;
 	font-family: 'Space Mono', monospace;
@@ -99,13 +101,16 @@ ul.tradeList
 {
 	width: 100%;
 	border: 1px solid black;
+	background-color: rgba(120, 120, 120, 0.9);
+	box-shadow: 3px 2px;
 }
 
 #sectorBoard {
 	height: 500px;
 	width: 500px;
-	border: 2px solid black;
+	border: 3px solid black;
 	background-color: rgba(120, 120, 120, 0.9);
+	box-shadow: 3px 2px;
 }
 
 /* indivindual elements for each containier in the sector board*/
@@ -121,7 +126,8 @@ td {
 	float: right;
 	width: 50%;
 	height: 400px;
-	border: 2px solid black;
+	border: 3px solid black;
+	box-shadow: 3px 2px;
 	background-color: rgba(120, 120, 120, 0.9);
 	margin: 3%;
 }
@@ -140,6 +146,7 @@ td {
 	right: 20px;
 }
 
+/* titles of each page(nav, trade, chat)*/
 .pageTitles {
 	font-family: 'Space Mono', monospace;
 	font-size: 3em;
