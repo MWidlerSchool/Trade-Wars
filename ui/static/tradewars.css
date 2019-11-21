@@ -59,24 +59,9 @@ body {
 	margin: 2%;
 }
 
-/* buttons used to navigate between screens */
-.tradeB {
-	font-family: 'Space Mono', monospace;
-	background-color: transparent;
-	border: 3px solid black;
-	box-shadow: 3px 2px;
-	color: black;
-	display: inline-block;
-	margin-bottom: 5%;
-}
-
-/* button to switch from navigation to chat */
-#navToChatB {
-	display: block;
-}
-
-/* button to switch from navigation to trade */
-#navToTradeB {
+/* button to switch from navigation to trade,
+button to switch from navigation to chat*/
+#navToTradeB, #navToChatB {
 	display: block;
 }
 
@@ -100,8 +85,7 @@ span.thirdSpan {
 }
 
 /* for paging through panels */
-dir.divPanel
-{
+dir.divPanel {
 	text-align: center;
 	width: 100%;
 	display: inline-block;
@@ -117,8 +101,7 @@ ul.tradeList
 	border: 1px solid black;
 }
 
-#sectorBoard
-{
+#sectorBoard {
 	height: 500px;
 	width: 500px;
 	border: 2px solid black;
@@ -157,7 +140,9 @@ td {
 	right: 20px;
 }
 
-#chatHeader {
+.pageTitles {
+	font-family: 'Space Mono', monospace;
 	font-size: 3em;
 	margin: 0%;
+	padding: 3%;
 }
