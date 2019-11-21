@@ -42,3 +42,11 @@ function navButtonPressed(x, y)
 {
 	console.log(x + ", " + y);
 }
+
+//hides main screen header when game starts
+function hideMainHeader()
+{
+	var mainHeader = document.getElementById("startpage-header");
+	
+	mainHeader.style.display = "none"
+}
