@@ -7,23 +7,7 @@ import (
 )
 
 func home(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/" {
-		http.NotFound(w, r)
-		return
-	}
-	tx, err := template.ParseFiles("./ui/html/tradewars.html")
-	if err != nil {
-		log.Println(err.Error())
-        http.Error(w, "Internal Server Error", 500)
-        return
-	}
-
-	err = tx.Execute(w, nil)
-	if err != nil {
-		log.Println(err.Error())
-        http.Error(w, "Internal Server Error", 500)
-        return
-	}
+	w.Write([]byte("Hello from Snippetbox"))
 }
 
 
