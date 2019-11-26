@@ -12,11 +12,12 @@
 		<h1 id="startpage-header">TRADE WARS</h1>
 		<dir class="divPanel" id="name-form">
 			<input id="name-input" type="text" placeholder="ENTER NAME HERE"><br>
-			<button class="changeMenuB" id="nameToNavB" onclick="readInName(), setActiveForm('nav-form'), hideMainHeader()">Submit</button>
+			<button class="changeMenuB" id="nameToNavB" onclick="readInName(), setActiveForm('nav-form'), hideMainHeader(), getCallsign()">Submit</button>
 		</dir>
 
 		<!-- NAVIGATION PAGE -->
 		<dir class="divPanel" id="nav-form">
+			<h2 id="callsign"></h2>
 			<h2 class="pageTitles">Navigation</h2>
 			<span class="halfSpan">
 				<table id="sectorBoard"></table>

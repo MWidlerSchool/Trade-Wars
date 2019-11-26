@@ -1,10 +1,5 @@
 // init
 
-//if(document.cookie){
-//	setActiveForm("nav-form")
-//}else{
-//	setActiveForm("name-form");
-//}
 addButtons();
 
 // hide inactive forms, show the active one
@@ -55,4 +50,11 @@ function hideMainHeader()
 	var mainHeader = document.getElementById("startpage-header");
 	
 	mainHeader.style.display = "none"
+}
+
+function getCallsign() {
+	var callHeader = document.getElementById("callsign");
+	var callsign = document.cookie.match('Callsign')
+
+	callHeader.innerHTML = callsign
 }
