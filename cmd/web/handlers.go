@@ -44,7 +44,7 @@ func navigation(w http.ResponseWriter, r *http.Request) {
 }
 
 func trade(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/" {
+	if r.URL.Path != "/trade" {
 		http.NotFound(w, r)
 		return
 	}
@@ -62,7 +62,7 @@ func trade(w http.ResponseWriter, r *http.Request) {
 }
 
 func chat(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/" {
+	if r.URL.Path != "/chat" {
 		http.NotFound(w, r)
 		return
 	}
