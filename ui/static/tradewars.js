@@ -40,7 +40,7 @@ function readInName()
 	var playerName = document.getElementById("name-input").value;
 	// test line; replace with actual code later
 	console.log(playerName);
-	document.cookie = playerName
+	document.cookie = "Callsign=playerName"
 }
 
 // receives presses from nav buttons
