@@ -19,6 +19,7 @@ func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", home)
 	http.Handle("ui/static", http.StripPrefix("ui/static",http.FileServer(http.Dir("ui/static"))))
+	mux.Handle("/static/", http.StripPrefix("/static", fileServer))
 
 
 	// Use the http.ListenAndServe() function to start a new web server. We pass in
