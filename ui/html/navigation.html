@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"> 
+		<link rel="stylesheet" type="text/css" href="../static/tradewars.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Space+Mono&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Bungee+Hairline&display=swap" rel="stylesheet">
+	</head>
+
+			<!-- NAVIGATION PAGE -->
+	<body>
+		<dir class="divPanel" id="nav-form">
+			<h2 class="pageTitles">Navigation</h2>
+			<h2 id="callsign"></h2>f
+			<span class="halfSpan">
+				<table id="sectorBoard"></table>
+			</span>
+			<span class="halfSpan">
+				<textarea id="navMessageBoard" readonly> </textarea>
+				<button class="changeMenuB" id="navToChatB" onclick="setActiveForm('chat-form')">Go to Chat</button>
+				<button class="changeMenuB" id="navToTradeB" onclick="setActiveForm('trade-form')">Go to Trade</button>
+			</span>
+		</dir>
+	</body>
+</html>
+
+<!-- run javascript -->
+<script type="text/javascript" src="../static/tradewars.js"></script>
