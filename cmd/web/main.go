@@ -12,6 +12,7 @@ func main() {
 	mux.HandleFunc("/navigation", navigation)
 	mux.HandleFunc("/trade", trade)
 	mux.HandleFunc("/chat", chat)
+	mux.HandleFunc("/players", playersHandler)
 	fileServer := http.FileServer(http.Dir("./ui/static/"))
 	mux.Handle("/static/", http.StripPrefix("/static", fileServer))
 
