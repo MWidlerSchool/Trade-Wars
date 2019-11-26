@@ -17,8 +17,8 @@ func main() {
 	// Use the http.NewServeMux() function to initialize a new servemux, then
 	// register the home function as the handler for the "/" URL pattern.
 	mux := http.NewServeMux()
-	http.Handle("ui/static", http.StripPrefix("ui/static",http.FileServer(http.Dir("ui/static"))))
 	mux.HandleFunc("/", home)
+	http.Handle("ui/static", http.StripPrefix("ui/static",http.FileServer(http.Dir("ui/static"))))
 
 
 	// Use the http.ListenAndServe() function to start a new web server. We pass in
