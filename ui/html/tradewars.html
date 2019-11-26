@@ -11,10 +11,8 @@
 	<body>
 		<h1 id="startpage-header">TRADE WARS</h1>
 		<dir class="divPanel" id="name-form">
-			<form>
-				<input id="name-input" type="text" placeholder="ENTER NAME HERE"><br>
-				<input type="submit" class="changeMenuB" id="nameToNavB" onclick="readInName()," action="/navigation">Submit</input>
-			</form>
+			<input id="name-input" type="text" placeholder="ENTER NAME HERE"><br>
+			<button class="changeMenuB" id="nameToNavB" onclick="readInName(), window.location.href = '/navigation'">Submit</button>
 		</dir>
 	</body>
 	<!-- run javascript -->
