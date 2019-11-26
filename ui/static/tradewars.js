@@ -1,5 +1,10 @@
 // init
-setActiveForm("name-form");
+
+if(document.cookie){
+	setActiveForm("nav-form")
+}else{
+	setActiveForm("name-form");
+}
 addButtons();
 
 // hide inactive forms, show the active one
@@ -35,6 +40,7 @@ function readInName()
 	var playerName = document.getElementById("name-input").value;
 	// test line; replace with actual code later
 	console.log(playerName);
+	document.cookie = playername
 }
 
 // receives presses from nav buttons
