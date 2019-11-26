@@ -11,9 +11,21 @@ func home(w http.ResponseWriter, r *http.Request) {
 		http.NotFound(w, r)
 		return
 	}
+	tx, err := template.ParseFiles("./ui/html/tradewars.html")
+	if err != nil {
+		log.Println(err.Error())
+        http.Error(w, "Internal Server Error", 500)
+        return
+	}
 
-	w.Write([]byte("Hello from Trade_Wars!"))
+	err = tx.Execute(w, nil)
+	if err != nil {
+		log.Println(err.Error())
+        http.Error(w, "Internal Server Error", 500)
+        return
+	}
 }
+
 
 func showSnippet(w http.ResponseWriter, r *http.Request) {
 	id, err := strconv.Atoi(r.URL.Query().Get("id"))
