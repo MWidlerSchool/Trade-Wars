@@ -18,7 +18,7 @@ func main() {
 	// register the home function as the handler for the "/" URL pattern.
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", home)
-	http.Handle("ui/static", http.StripPrefix("ui/static",http.FileServer(http.Dir("ui/static"))))
+	fileServer := http.FileServer(http.Dir("./ui/static/"))
 	mux.Handle("/static/", http.StripPrefix("/static", fileServer))
 
 
