@@ -54,7 +54,7 @@ function hideMainHeader()
 
 function getCallsign() {
 	var callHeader = document.getElementById("callsign");
-	var callsign = document.cookie.match('Callsign')
+	var callsign = document.cookie.match(Callsign)
 
 	callHeader.innerHTML = callsign
 }
