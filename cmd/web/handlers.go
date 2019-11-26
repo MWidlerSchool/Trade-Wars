@@ -26,7 +26,7 @@ func home(w http.ResponseWriter, r *http.Request) {
 }
 
 func navigation(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/" {
+	if r.URL.Path != "/navigation" {
 		http.NotFound(w, r)
 		return
 	}
@@ -84,7 +84,7 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
 		http.NotFound(w, r)
 		return
 	}
-	ts, err := template.ParseFiles("./ui/html/chat.html")
+	ts, err := template.ParseFiles("")
     if err != nil {
         log.Println(err.Error())
         http.Error(w, "Internal Server Error", 500)
