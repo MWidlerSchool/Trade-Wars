@@ -28,7 +28,7 @@ func home(w http.ResponseWriter, r *http.Request) {
 
 func navigation(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
-		http.NotFound(w r)
+		http.NotFound(w, r)
 		return
 	}
 	ts, err := template.ParseFiles("./ui/html/navigation.html")
@@ -46,7 +46,7 @@ func navigation(w http.ResponseWriter, r *http.Request) {
 
 func trade(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
-		http.NotFound(w r)
+		http.NotFound(w, r)
 		return
 	}
 	ts, err := template.ParseFiles("./ui/html/trade.html")
@@ -64,7 +64,7 @@ func trade(w http.ResponseWriter, r *http.Request) {
 
 func chat(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
-		http.NotFound(w r)
+		http.NotFound(w, r)
 		return
 	}
 	ts, err := template.ParseFiles("./ui/html/chat.html")
@@ -80,9 +80,9 @@ func chat(w http.ResponseWriter, r *http.Request) {
     }
 }
 
-func players(w http.ResponseWriter, r *http.Request) {
+func playersHandler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
-		http.NotFound(w r)
+		http.NotFound(w, r)
 		return
 	}
 	ts, err := template.ParseFiles("./ui/html/chat.html")
