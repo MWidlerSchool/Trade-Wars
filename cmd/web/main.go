@@ -26,7 +26,7 @@ func main() {
 	// that any error returned by http.ListenAndServe() is always non-nil.
 	var PORT = os.Getenv("PORT")
 
-	log.Println("Starting server on :4000")
+	log.Println("Starting server on :" + port)
 	err := http.ListenAndServe(":"+PORT, mux)
 	log.Fatal(err)
 }
