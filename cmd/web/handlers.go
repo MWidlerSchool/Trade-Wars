@@ -4,10 +4,26 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
+	"html/template"
+	"log"
 )
 
 func home(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Hello from Snippetbox"))
+    if r.URL.Path != "/" {
+        http.NotFound(w, r)
+        return
+    }
+    ts, err := template.ParseFiles("./ui/html/tradewars.html")
+    if err != nil {
+        log.Println(err.Error())
+        http.Error(w, "Internal Server Error", 500)
+        return
+    }
+    err = ts.Execute(w, nil)
+    if err != nil {
+        log.Println(err.Error())
+        http.Error(w, "Internal Server Error", 500)
+    }
 }
 
 
