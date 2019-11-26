@@ -24,9 +24,9 @@ func main() {
 	// and the servemux we just created. If http.ListenAndServe() returns an error
 	// we use the log.Fatal() function to log the error message and exit. Note
 	// that any error returned by http.ListenAndServe() is always non-nil.
-	var PORT = os.Getenv("PORT")
+	var port = os.Getenv("PORT")
 
 	log.Println("Starting server on :" + port)
-	err := http.ListenAndServe(":4000", mux)
+	err := http.ListenAndServe(":" + port, mux)
 	log.Fatal(err)
 }
