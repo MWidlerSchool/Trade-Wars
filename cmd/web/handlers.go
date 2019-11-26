@@ -80,11 +80,11 @@ func chat(w http.ResponseWriter, r *http.Request) {
 }
 
 func playersHandler(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/" {
+	if r.URL.Path != "/players" {
 		http.NotFound(w, r)
 		return
 	}
-	ts, err := template.ParseFiles("")
+	ts, err := template.ParseFiles("./ui/html/players.html")
     if err != nil {
         log.Println(err.Error())
         http.Error(w, "Internal Server Error", 500)
