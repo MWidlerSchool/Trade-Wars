@@ -27,6 +27,6 @@ func main() {
 	var PORT = os.Getenv("PORT")
 
 	log.Println("Starting server on :" + port)
-	err := http.ListenAndServe(":"+PORT, mux)
+	err := http.ListenAndServe(":4000", mux)
 	log.Fatal(err)
 }
