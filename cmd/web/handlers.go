@@ -19,6 +19,7 @@ func home(w http.ResponseWriter, r *http.Request) {
 			fmt.Fprintf(w, "ParseForm() err: %v", err)
 			return
 		}
+		PostTest()
 		switch r.FormValue("actiontype") {
 		case "navButton":
 			NavButtonPressed(r.FormValue(""), r.FormValue(""))
