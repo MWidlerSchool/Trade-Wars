@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 	//"strconv"
 	"html/template"
@@ -8,30 +9,31 @@ import (
 )
 
 func home(w http.ResponseWriter, r *http.Request) {
-    if r.URL.Path != "/" {
-        http.NotFound(w, r)
-        return
-    }
-    if r.Method == "POST" {
-        if err := r.ParseForm(); err != nil {
-            fmt.Fprintf(w, "ParseForm() err: %v", err)
-            return
-        }
-        switch r.FormValue("actiontype") {
-            case "navButton": navButtonPressed(r.formValue(""), r.formValue(""))
-        }
-    }
-    ts, err := template.ParseFiles("./ui/html/tradewars.html")
-    if err != nil {
-        log.Println(err.Error())
-        http.Error(w, "Internal Server Error", 500)
-        return
-    }
-    err = ts.Execute(w, nil)
-    if err != nil {
-        log.Println(err.Error())
-        http.Error(w, "Internal Server Error", 500)
-    }
+	if r.URL.Path != "/" {
+		http.NotFound(w, r)
+		return
+	}
+	if r.Method == "POST" {
+		if err := r.ParseForm(); err != nil {
+			fmt.Fprintf(w, "ParseForm() err: %v", err)
+			return
+		}
+		switch r.FormValue("actiontype") {
+		case "navButton":
+			navButtonPressed(r.FormValue(""), r.FormValue(""))
+		}
+	}
+	ts, err := template.ParseFiles("./ui/html/tradewars.html")
+	if err != nil {
+		log.Println(err.Error())
+		http.Error(w, "Internal Server Error", 500)
+		return
+	}
+	err = ts.Execute(w, nil)
+	if err != nil {
+		log.Println(err.Error())
+		http.Error(w, "Internal Server Error", 500)
+	}
 }
 
 func navigation(w http.ResponseWriter, r *http.Request) {
@@ -40,16 +42,16 @@ func navigation(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	ts, err := template.ParseFiles("./ui/html/navigation.html")
-    if err != nil {
-        log.Println(err.Error())
-        http.Error(w, "Internal Server Error", 500)
-        return
-    }
-    err = ts.Execute(w, nil)
-    if err != nil {
-        log.Println(err.Error())
-        http.Error(w, "Internal Server Error", 500)
-    }
+	if err != nil {
+		log.Println(err.Error())
+		http.Error(w, "Internal Server Error", 500)
+		return
+	}
+	err = ts.Execute(w, nil)
+	if err != nil {
+		log.Println(err.Error())
+		http.Error(w, "Internal Server Error", 500)
+	}
 }
 
 func trade(w http.ResponseWriter, r *http.Request) {
@@ -58,16 +60,16 @@ func trade(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	ts, err := template.ParseFiles("./ui/html/trade.html")
-    if err != nil {
-        log.Println(err.Error())
-        http.Error(w, "Internal Server Error", 500)
-        return
-    }
-    err = ts.Execute(w, nil)
-    if err != nil {
-        log.Println(err.Error())
-        http.Error(w, "Internal Server Error", 500)
-    }
+	if err != nil {
+		log.Println(err.Error())
+		http.Error(w, "Internal Server Error", 500)
+		return
+	}
+	err = ts.Execute(w, nil)
+	if err != nil {
+		log.Println(err.Error())
+		http.Error(w, "Internal Server Error", 500)
+	}
 }
 
 func chat(w http.ResponseWriter, r *http.Request) {
@@ -76,16 +78,16 @@ func chat(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	ts, err := template.ParseFiles("./ui/html/chat.html")
-    if err != nil {
-        log.Println(err.Error())
-        http.Error(w, "Internal Server Error", 500)
-        return
-    }
-    err = ts.Execute(w, nil)
-    if err != nil {
-        log.Println(err.Error())
-        http.Error(w, "Internal Server Error", 500)
-    }
+	if err != nil {
+		log.Println(err.Error())
+		http.Error(w, "Internal Server Error", 500)
+		return
+	}
+	err = ts.Execute(w, nil)
+	if err != nil {
+		log.Println(err.Error())
+		http.Error(w, "Internal Server Error", 500)
+	}
 }
 
 func playersHandler(w http.ResponseWriter, r *http.Request) {
@@ -94,14 +96,14 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	ts, err := template.ParseFiles("./ui/html/players.html")
-    if err != nil {
-        log.Println(err.Error())
-        http.Error(w, "Internal Server Error", 500)
-        return
-    }
-    err = ts.Execute(w, nil)
-    if err != nil {
-        log.Println(err.Error())
-        http.Error(w, "Internal Server Error", 500)
-    }
+	if err != nil {
+		log.Println(err.Error())
+		http.Error(w, "Internal Server Error", 500)
+		return
+	}
+	err = ts.Execute(w, nil)
+	if err != nil {
+		log.Println(err.Error())
+		http.Error(w, "Internal Server Error", 500)
+	}
 }

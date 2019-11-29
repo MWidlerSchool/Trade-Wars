@@ -2,10 +2,10 @@ package main
 
 import (
 	"log"
-	"net/http"
-	"os"
+	//"net/http"
+	//"os"
 )
 
-func navButtonPressed(xLoc int, yLoc int) {
+func navButtonPressed(xLoc string, yLoc string) {
 	log.Println("x = " + xLoc + ", y = " + yLoc)
 }
