@@ -1,5 +1,5 @@
 // init
-
+var xhttp = new XMLHttpRequest();
 addButtons();
 
 // hide inactive forms, show the active one
@@ -42,7 +42,7 @@ function readInName()
 function navButtonPressed(x, y)
 {
 	console.log(x + ", " + y);
-	var locStr = "xpos=" + x + "&ypos=" + y;
+	var locStr = "actiontype=navbutton&xpos=" + x + "&ypos=" + y;
 	xhttp.open("POST", "https://tradewars-se201.herokuapp.com/", true)
 	xhttp.send(locStr); 
 }
