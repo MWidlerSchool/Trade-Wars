@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+
 	//"strconv"
 	"html/template"
 	"log"
@@ -20,7 +21,7 @@ func home(w http.ResponseWriter, r *http.Request) {
 		}
 		switch r.FormValue("actiontype") {
 		case "navButton":
-			navButtonPressed(r.FormValue(""), r.FormValue(""))
+			NavButtonPressed(r.FormValue(""), r.FormValue(""))
 		}
 	}
 	ts, err := template.ParseFiles("./ui/html/tradewars.html")

@@ -6,6 +6,6 @@ import (
 	//"os"
 )
 
-func navButtonPressed(xLoc string, yLoc string) {
+func NavButtonPressed(xLoc string, yLoc string) {
 	log.Println("x = " + xLoc + ", y = " + yLoc)
 }
