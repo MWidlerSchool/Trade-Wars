@@ -42,6 +42,9 @@ function readInName()
 function navButtonPressed(x, y)
 {
 	console.log(x + ", " + y);
+	var locStr = "xpos=" + x + "&ypos=" + y;
+	xhttp.open("POST", "https://tradewars-se201.herokuapp.com/", true)
+	xhttp.send(locStr); 
 }
 
 //hides main screen header when game starts

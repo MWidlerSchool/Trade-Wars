@@ -12,6 +12,15 @@ func home(w http.ResponseWriter, r *http.Request) {
         http.NotFound(w, r)
         return
     }
+    if r.Method == "POST" {
+        if err := r.ParseForm(); err != nil {
+            fmt.Fprintf(w, "ParseForm() err: %v", err)
+            return
+        }
+        switch r.FormValue("actiontype") {
+            case "navButton": navButtonPressed(r.formValue(""), r.formValue(""))
+        }
+    }
     ts, err := template.ParseFiles("./ui/html/tradewars.html")
     if err != nil {
         log.Println(err.Error())
