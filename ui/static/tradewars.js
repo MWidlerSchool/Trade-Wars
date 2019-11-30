@@ -43,7 +43,7 @@ function navButtonPressed(x, y)
 {
 	console.log(x + ", " + y);
 	var locStr = "actiontype=navbutton&xpos=" + x + "&ypos=" + y;
-	xhttp.open("POST", "https://tradewars-se201.herokuapp.com/", true)
+	xhttp.open("POST", "https://tradewars-se201.herokuapp.com/navigation", true)
 	xhttp.send(locStr); 
 }
 
