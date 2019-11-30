@@ -14,7 +14,9 @@ func home(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if r.Method == http.MethodPost {
-		outStr := "Got a post in home: " + r.FormValue("xpos") + ", " + r.FormValue("ypos")
+		xPos := r.URL.Query().Get("xpos")
+		yPos := r.URL.Query().Get("ypos")
+		outStr := "Got a post in home: " + xPos + ", " + yPos
 		http.Error(w, outStr, 200)
 		return
 	}
