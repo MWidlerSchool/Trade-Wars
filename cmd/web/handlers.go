@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 
 	//"strconv"
@@ -13,19 +12,19 @@ func home(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
 		http.NotFound(w, r)
 		return
-	}
-	if r.Method == "POST" {
-		log.Println("POST detected in home")
-		if err := r.ParseForm(); err != nil {
-			fmt.Fprintf(w, "ParseForm() err: %v", err)
-			return
-		}
-		PostTest(&w, r)
-		switch r.FormValue("actiontype") {
-		case "navButton":
-			NavButtonPressed(r.FormValue(""), r.FormValue(""))
-		}
-	}
+	} /*
+		if r.Method == "POST" {
+			log.Println("POST detected in home")
+			if err := r.ParseForm(); err != nil {
+				fmt.Fprintf(w, "ParseForm() err: %v", err)
+				return
+			}
+			PostTest(&w, r)
+			switch r.FormValue("actiontype") {
+			case "navButton":
+				NavButtonPressed(r.FormValue(""), r.FormValue(""))
+			}
+		}*/
 	ts, err := template.ParseFiles("./ui/html/tradewars.html")
 	if err != nil {
 		log.Println(err.Error())
