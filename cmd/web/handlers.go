@@ -15,6 +15,7 @@ func home(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if r.Method == "POST" {
+		log.Println("POST detected in home")
 		if err := r.ParseForm(); err != nil {
 			fmt.Fprintf(w, "ParseForm() err: %v", err)
 			return
@@ -44,6 +45,7 @@ func navigation(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if r.Method == "POST" {
+		log.Println("POST detected in navigation")
 		PostTest()
 		return
 	}
