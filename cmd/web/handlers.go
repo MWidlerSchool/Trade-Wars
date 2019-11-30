@@ -10,6 +10,7 @@ import (
 )
 
 func home(w http.ResponseWriter, r *http.Request) {
+	log.Println("home called")
 	if r.URL.Path != "/" {
 		http.NotFound(w, r)
 		return
