@@ -7,7 +7,7 @@ import (
 )
 
 func NavButtonPressed(x string, y string) string {
-	outStr := string("Got a post in home: " + x + ", " + y)
+	outStr := string("Nav button pressed: " + x + ", " + y)
 	return outStr
 }
 
