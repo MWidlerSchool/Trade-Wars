@@ -13,6 +13,11 @@ func home(w http.ResponseWriter, r *http.Request) {
 		http.NotFound(w, r)
 		return
 	}
+	if r.Method == http.MethodPost {
+		outStr := "Got a post in home: " + r.FormValue("xPos") + ", " + r.FormValue("yPos")
+		http.Error(w, outStr, 200)
+		return
+	}
 	ts, err := template.ParseFiles("./ui/html/tradewars.html")
 	if err != nil {
 		log.Println(err.Error())
