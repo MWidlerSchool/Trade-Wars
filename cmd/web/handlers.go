@@ -43,6 +43,10 @@ func navigation(w http.ResponseWriter, r *http.Request) {
 		http.NotFound(w, r)
 		return
 	}
+	if r.Method == "POST" {
+		PostTest()
+		return
+	}
 	ts, err := template.ParseFiles("./ui/html/navigation.html")
 	if err != nil {
 		log.Println(err.Error())
