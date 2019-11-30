@@ -10,6 +10,6 @@ func NavButtonPressed(xLoc string, yLoc string) {
 	log.Println("x = " + xLoc + ", y = " + yLoc)
 }
 
-func PostTest() {
-	log.Println("POST received")
+func PostTest(w *http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "POST received")
 }

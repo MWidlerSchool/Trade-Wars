@@ -10,7 +10,6 @@ import (
 )
 
 func home(w http.ResponseWriter, r *http.Request) {
-	log.Println("home called")
 	if r.URL.Path != "/" {
 		http.NotFound(w, r)
 		return
@@ -21,7 +20,7 @@ func home(w http.ResponseWriter, r *http.Request) {
 			fmt.Fprintf(w, "ParseForm() err: %v", err)
 			return
 		}
-		PostTest()
+		PostTest(&w, r)
 		switch r.FormValue("actiontype") {
 		case "navButton":
 			NavButtonPressed(r.FormValue(""), r.FormValue(""))
@@ -45,9 +44,8 @@ func navigation(w http.ResponseWriter, r *http.Request) {
 		http.NotFound(w, r)
 		return
 	}
-	if r.Method == "POST" {
-		log.Println("POST detected in navigation")
-		PostTest()
+	if r.Method == http.MethodPost {
+		http.Error(w, "Got a post!", 500)
 		return
 	}
 	ts, err := template.ParseFiles("./ui/html/navigation.html")
