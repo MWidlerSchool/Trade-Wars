@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 	//"os"
 )
 
-func NavButtonPressed(xLoc string, yLoc string) {
-	log.Println("x = " + xLoc + ", y = " + yLoc)
+func NavButtonPressed(x string, y string) string {
+	outStr := string("Got a post in home: " + x + ", " + y)
+	return outStr
 }
 
 func PostTest(w http.ResponseWriter, r *http.Request) {
