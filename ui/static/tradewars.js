@@ -41,10 +41,28 @@ function readInName()
 // receives presses from nav buttons
 function navButtonPressed(x, y)
 {
-	console.log(x + ", " + y);
-	var locStr = "?actiontype=navbutton&xpos=" + x + "&ypos=" + y;
-	xhttp.open("POST", "https://tradewars-se201.herokuapp.com/" + locStr, true)
-	xhttp.send(); 
+	sendPost("navbutton", ["xpos", "ypos"], [x, y]);
+}
+
+// send a post request to the server
+function sendPost(actionType, keys, values)
+{
+	// if given a single key and value, make them lists
+	if(Array.isArray(keys) == false)
+	{
+		keys = [keys];
+		values = [values];
+	}
+	// make a querystring
+	var outStr = "?actiontype=" + actionType;
+	var i = 0;
+	for(i = 0; i < keys.length; i++)
+	{
+		outStr += "&" + keys[i] + "=" + values[i];
+	}
+	// send it
+	xhttp.open("POST", "https://tradewars-se201.herokuapp.com/" + outStr, true)
+	xhttp.send();
 }
 
 //hides main screen header when game starts
