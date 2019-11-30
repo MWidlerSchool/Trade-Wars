@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"net/http"
 
 	//"strconv"
@@ -11,10 +12,6 @@ import (
 func home(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
 		http.NotFound(w, r)
-		return
-	}
-	if r.Method == http.MethodPost {
-		http.Error(w, "Got a post in home!", 200)
 		return
 	}
 	ts, err := template.ParseFiles("./ui/html/tradewars.html")
@@ -36,7 +33,10 @@ func navigation(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if r.Method == http.MethodPost {
-		http.Error(w, "Got a post in nav!", 200)
+		buffer := new(bytes.Buffer)
+		buffer.ReadFrom(r.Body)
+		postBody := buffer.String()
+		http.Error(w, "Got a post in nav: "+postBody, 200)
 		return
 	}
 	ts, err := template.ParseFiles("./ui/html/navigation.html")
