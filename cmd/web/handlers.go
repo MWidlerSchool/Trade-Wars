@@ -32,13 +32,8 @@ func navigation(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if r.Method == http.MethodPost {
-		keys, err := r.URL.Query()["key"]
-
-		if err {
-
-		}
-		key := keys[0]
-		http.Error(w, "Got a post in nav: "+key, 200)
+		outStr := "Got a post in nav: " + r.FormValue("xPos") + ", " + r.FormValue("yPos")
+		http.Error(w, outStr, 200)
 		return
 	}
 	ts, err := template.ParseFiles("./ui/html/navigation.html")
