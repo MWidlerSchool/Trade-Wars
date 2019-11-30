@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bytes"
 	"net/http"
 
 	//"strconv"
@@ -33,10 +32,13 @@ func navigation(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if r.Method == http.MethodPost {
-		buffer := new(bytes.Buffer)
-		buffer.ReadFrom(r.Body)
-		postBody := buffer.String()
-		http.Error(w, "Got a post in nav: "+postBody, 200)
+		keys, err := r.URL.Query()["key"]
+
+		if err {
+
+		}
+		key := keys[0]
+		http.Error(w, "Got a post in nav: "+key, 200)
 		return
 	}
 	ts, err := template.ParseFiles("./ui/html/navigation.html")
