@@ -11,7 +11,7 @@
 	<body>
 		<h1 id="startpage-header">TRADE WARS</h1>
 		<dir class="divPanel" id="name-form">
-			<form>
+			<form action="/players" method="post" name="callsign">
 				<input id="name-input" type="text" placeholder="ENTER NAME HERE"><br>
 				<input type="button" class="changeMenuB" id="nameToNavB" onclick="readInName(), window.location.href='/navigation'" value="Submit"></input>
 			</form>

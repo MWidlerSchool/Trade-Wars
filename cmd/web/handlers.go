@@ -6,6 +6,7 @@ import (
 	//"strconv"
 	"html/template"
 	"log"
+	"github.com/gorilla/sessions"
 )
 
 func home(w http.ResponseWriter, r *http.Request) {
@@ -106,5 +107,30 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Println(err.Error())
 		http.Error(w, "Internal Server Error", 500)
+	}else if r.Method == http.MethodPost{
+		err := r.ParseForm()
+		if err != nil{
+			log.Println(err.Error())
+			http.Error(w, "Internal Server Error", 500)
+		}
+		callsign :=r.Form.Get("callsign")
+		cookie := http.Cookie{
+			Name: "callsign",
+			Value: callsign,
+			Expires: time.Now.AddDate(0,0,1),
+			Path:"/"
+		}
+		http.Redirect(w, r, "/map", http.StatusSeeOther)
 	}
+}
+
+func mapHandler(w http.ResponseWriter, r *http.Request){
+	var cookie, err = r.Cookie("callsign")
+	if err != nil{
+		log.Println(err.Error())
+		http.Error(w, "Internal Server Error, Could not Process callsign from cookie", 50)
+		return
+	}
+	callsign := cookie.Valuelog.Println(callsign)
+	w.Write([]byte(callsign))
 }
