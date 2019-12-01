@@ -126,6 +126,7 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
 			Expires: time.Now().AddDate(0,0,1),
 			Path:"/",
 		}
+		http.SetCookie(w, &cookie)
 		http.Redirect(w, r, "/map", http.StatusSeeOther)
 	}
 }
