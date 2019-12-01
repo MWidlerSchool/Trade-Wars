@@ -7,6 +7,7 @@ import (
 	"html/template"
 	"log"
 	//"github.com/gorilla/sessions"
+	"time"
 )
 
 func home(w http.ResponseWriter, r *http.Request) {
@@ -136,6 +137,7 @@ func mapHandler(w http.ResponseWriter, r *http.Request){
 		http.Error(w, "Internal Server Error, Could not Process callsign from cookie", 50)
 		return
 	}
-	callsign := cookie.Valuelog.Println(callsign)
+	callsign := cookie.Value
+	log.Println(callsign)
 	w.Write([]byte(callsign))
 }
