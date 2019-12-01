@@ -16,8 +16,13 @@ func home(w http.ResponseWriter, r *http.Request) {
 	}
 	if r.Method == http.MethodPost {
 		qStr := r.URL.Query()
-		outStr := "Got a post in home: " + qStr.Get("xpos") + ", " + qStr.Get("ypos")
-		http.Error(w, outStr, 200)
+		returnStr := ""
+		// main switch for incoming POST requests
+		switch qStr.Get("actiontype") {
+		case "navbutton":
+			returnStr = NavButtonPressed(qStr.Get("xpos"), qStr.Get("ypos"))
+		}
+		http.Error(w, returnStr, 200)
 		return
 	}
 	ts, err := template.ParseFiles("./ui/html/tradewars.html")
