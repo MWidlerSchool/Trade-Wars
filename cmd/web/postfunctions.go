@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	//"os"
-	"github.com/gorilla/sessions"
+	//"github.com/gorilla/sessions"
 )
 
 func NavButtonPressed(x string, y string) string {

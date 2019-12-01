@@ -6,7 +6,7 @@ import (
 	//"strconv"
 	"html/template"
 	"log"
-	"github.com/gorilla/sessions"
+	//"github.com/gorilla/sessions"
 )
 
 func home(w http.ResponseWriter, r *http.Request) {
