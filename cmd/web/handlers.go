@@ -123,7 +123,7 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
 		cookie := http.Cookie{
 			Name: "callsign",
 			Value: callsign,
-			Expires: time.Now.AddDate(0,0,1),
+			Expires: time.Now().AddDate(0,0,1),
 			Path:"/",
 		}
 		http.Redirect(w, r, "/map", http.StatusSeeOther)
