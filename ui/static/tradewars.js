@@ -1,5 +1,4 @@
 // init
-var xhttp = new XMLHttpRequest();
 addButtons();
 
 // hide inactive forms, show the active one
@@ -22,7 +21,7 @@ function addButtons()
 		outStr += "<tr>";
 		for(x = 0; x < 10; x++)
 		{
-			outStr += "<td  readonly onclick='navButtonPressed(" + x + " , " + y + ")'>?</td>";
+			outStr += "<td id='button" + x + "_" + y +"'  readonly onclick='navButtonPressed(" + x + " , " + y + ")'>?</td>";
 		}
 		outStr += "</tr>";
 	}
@@ -61,8 +60,16 @@ function sendPost(actionType, keys, values)
 		outStr += "&" + keys[i] + "=" + values[i];
 	}
 	// send it
+	var xhttp = new XMLHttpRequest();
 	xhttp.open("POST", "https://tradewars-se201.herokuapp.com/" + outStr, true)
-	xhttp.send();
+	xhttp.onreadystatechange = function(e) {
+		if (xhttp.readyState === 4) {
+			if (xhttp.status === 200) {
+				eval(xhttp.response);
+			}
+		}
+	}
+	xhttp.send();  
 }
 
 //hides main screen header when game starts
@@ -78,4 +85,22 @@ function getCallsign() {
 	var callsign = document.cookie.match(Callsign)
 
 	callHeader.innerHTML = callsign
+}
+
+// update which tile shows the player's location
+function updatePlayerLoc(xLoc, yLoc) {
+	var x = 0;
+	var y = 0;
+	for(y = 0; y < 10; y++)
+	{
+		for(x = 0; x < 10; x++)
+		{
+			var elementStr = "button" + x + "_" + y;
+			if(xLoc === x && yLoc === y) {
+				document.getElementById(elementStr).innerHTML = "X";
+			} else {
+				document.getElementById(elementStr).innerHTML = "?";
+			}
+		}
+	}
 }

@@ -8,8 +8,9 @@ import (
 )
 
 func NavButtonPressed(x string, y string) string {
-	outStr := string("Nav button pressed: " + x + ", " + y)
-	return outStr
+	return "updatePlayerLoc(" + x + ", " + y + ");"
+	//outStr := string("Nav button pressed: " + x + ", " + y)
+	//return outStr
 }
 
 func PostTest(w http.ResponseWriter, r *http.Request) {
