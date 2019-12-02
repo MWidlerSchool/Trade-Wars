@@ -1,5 +1,4 @@
 // init
-var xhttp = new XMLHttpRequest();
 addButtons();
 
 // hide inactive forms, show the active one
@@ -61,8 +60,18 @@ function sendPost(actionType, keys, values)
 		outStr += "&" + keys[i] + "=" + values[i];
 	}
 	// send it
+	var xhttp = new XMLHttpRequest();
 	xhttp.open("POST", "https://tradewars-se201.herokuapp.com/" + outStr, true)
-	xhttp.send();
+	xhr.onreadystatechange = function(e) {
+		if (xhttp.readyState === 4) {
+		  if (xhttp.status === 200) {
+		   callback(null, xhttp.response)
+		  } else {
+		   callback(xhttp.status, null)
+		  }
+		}
+	}
+	xhttp.send();  
 }
 
 //hides main screen header when game starts
