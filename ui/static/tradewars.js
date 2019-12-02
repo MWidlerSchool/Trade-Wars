@@ -62,7 +62,7 @@ function sendPost(actionType, keys, values)
 	// send it
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("POST", "https://tradewars-se201.herokuapp.com/" + outStr, true)
-	xhr.onreadystatechange = function(e) {
+	xhttp.onreadystatechange = function(e) {
 		if (xhttp.readyState === 4) {
 		  if (xhttp.status === 200) {
 		   callback(null, xhttp.response)
