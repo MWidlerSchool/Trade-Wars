@@ -65,10 +65,7 @@ function sendPost(actionType, keys, values)
 	xhttp.onreadystatechange = function(e) {
 		if (xhttp.readyState === 4) {
 		  if (xhttp.status === 200) {
-		   callback(null, xhttp.response)
-		  } else {
-		   callback(xhttp.status, null)
-		  }
+		   xhttp.response();
 		}
 	}
 	xhttp.send();  
