@@ -6,6 +6,7 @@ import (
 	//"strconv"
 	"html/template"
 	"log"
+
 	//"github.com/gorilla/sessions"
 	"time"
 )
@@ -17,13 +18,15 @@ func home(w http.ResponseWriter, r *http.Request) {
 	}
 	if r.Method == http.MethodPost {
 		qStr := r.URL.Query()
-		returnStr := ""
+		//returnStr := ""
 		// main switch for incoming POST requests
 		switch qStr.Get("actiontype") {
 		case "navbutton":
-			returnStr = NavButtonPressed(qStr.Get("xpos"), qStr.Get("ypos"))
+			//returnStr = NavButtonPressed(qStr.Get("xpos"), qStr.Get("ypos"))
+			w.Header().Set("Content-Type", "application/javascript")
+			w.Write([]byte(NavButtonPressed(qStr.Get("xpos"), qStr.Get("ypos"))))
 		}
-		http.Error(w, returnStr, 200)
+		//http.Error(w, returnStr, 200)
 		return
 	}
 	ts, err := template.ParseFiles("./ui/html/tradewars.html")
@@ -113,27 +116,27 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Println(err.Error())
 		http.Error(w, "Internal Server Error", 500)
-	}else if r.Method == http.MethodPost{
+	} else if r.Method == http.MethodPost {
 		err := r.ParseForm()
-		if err != nil{
+		if err != nil {
 			log.Println(err.Error())
 			http.Error(w, "Internal Server Error", 500)
 		}
-		callsign :=r.Form.Get("callsign")
+		callsign := r.Form.Get("callsign")
 		cookie := http.Cookie{
-			Name: "callsign",
-			Value: callsign,
-			Expires: time.Now().AddDate(0,0,1),
-			Path:"/",
+			Name:    "callsign",
+			Value:   callsign,
+			Expires: time.Now().AddDate(0, 0, 1),
+			Path:    "/",
 		}
 		http.SetCookie(w, &cookie)
 		http.Redirect(w, r, "/map", http.StatusSeeOther)
 	}
 }
 
-func mapHandler(w http.ResponseWriter, r *http.Request){
+func mapHandler(w http.ResponseWriter, r *http.Request) {
 	var cookie, err = r.Cookie("callsign")
-	if err != nil{
+	if err != nil {
 		log.Println(err.Error())
 		http.Error(w, "Internal Server Error, Could not Process callsign from cookie", 50)
 		return

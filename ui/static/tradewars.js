@@ -22,7 +22,7 @@ function addButtons()
 		outStr += "<tr>";
 		for(x = 0; x < 10; x++)
 		{
-			outStr += "<td  readonly onclick='navButtonPressed(" + x + " , " + y + ")'>?</td>";
+			outStr += "<td id='button" + x + "_" + y +"'  readonly onclick='navButtonPressed(" + x + " , " + y + ")'>?</td>";
 		}
 		outStr += "</tr>";
 	}
@@ -78,4 +78,22 @@ function getCallsign() {
 	var callsign = document.cookie.match(Callsign)
 
 	callHeader.innerHTML = callsign
+}
+
+// update which tile shows the player's location
+function updatePlayerLoc(xLoc, yLoc) {
+	var x = 0;
+	var y = 0;
+	for(y = 0; y < 10; y++)
+	{
+		var elementStr = "button" + x + "_" + y;
+		for(x = 0; x < 10; x++)
+		{
+			if(xLoc === x && yLoc === y) {
+				document.getElementByID(elementStr).innerHTML = "X";
+			} else {
+				document.getElementByID(elementStr).innerHTML = "?";
+			}
+		}
+	}
 }
