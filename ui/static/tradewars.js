@@ -93,9 +93,10 @@ function updatePlayerLoc(xLoc, yLoc) {
 	var y = 0;
 	for(y = 0; y < 10; y++)
 	{
-		var elementStr = "button" + x + "_" + y;
 		for(x = 0; x < 10; x++)
 		{
+			var elementStr = "button" + x + "_" + y;
+			console.log(elementStr);
 			if(xLoc === x && yLoc === y) {
 				document.getElementById(elementStr).innerHTML = "X";
 			} else {
