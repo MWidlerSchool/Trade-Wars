@@ -97,9 +97,9 @@ function updatePlayerLoc(xLoc, yLoc) {
 		for(x = 0; x < 10; x++)
 		{
 			if(xLoc === x && yLoc === y) {
-				document.getElementByID(elementStr).innerHTML = "X";
+				document.getElementById(elementStr).innerHTML = "X";
 			} else {
-				document.getElementByID(elementStr).innerHTML = "?";
+				document.getElementById(elementStr).innerHTML = "?";
 			}
 		}
 	}
