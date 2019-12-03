@@ -9,7 +9,7 @@ import (
 )
 
 func NavButtonPressed(playerName string, x string, y string) string {
-	returnStr := "Target sector must be adjacent to current location!"
+	returnStr := "setNavMessage('Target sector must be adjacent to current location!');"
 	intX, _ := strconv.Atoi(x)
 	intY, _ := strconv.Atoi(y)
 	if shouldAllowMove(playerMap[playerName], intX, intY) {
