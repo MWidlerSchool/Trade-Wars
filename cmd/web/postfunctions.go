@@ -19,6 +19,7 @@ func NavButtonPressed(playerName string, x string, y string) string {
 		p := playerMap[playerName]
 		p.X = intX
 		p.Y = intY
+		playerMap[playerName] = p
 	}
 	return returnStr
 }
