@@ -11,12 +11,6 @@ type Player struct {
 }
 
 func extractPlayerName(r *http.Request) string {
-	//pName := ""
-	/*for _, cookie := range r.Cookies() {
-		if strings.Contains(cookie.Value, "callsign") {
-			pName = strings.ReplaceAll(cookie.Value, "callsign=", "")
-		}
-	}*/
 	var cookie, err = r.Cookie("Callsign")
 	if err != nil {
 		return ""
