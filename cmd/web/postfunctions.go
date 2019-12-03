@@ -16,6 +16,9 @@ func NavButtonPressed(playerName string, x string, y string) string {
 		str1 := "updatePlayerLoc(" + x + ", " + y + ");"
 		str2 := "setNavMessage('" + playerName + " sets course for sector " + x + ", " + y + "');"
 		returnStr = str1 + str2
+		p := playerMap[playerName]
+		p.X = intX
+		p.Y = intY
 	}
 	return returnStr
 }
