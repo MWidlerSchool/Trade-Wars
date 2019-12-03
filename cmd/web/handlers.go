@@ -17,16 +17,14 @@ func home(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if r.Method == http.MethodPost {
+		playerName := extractPlayerName(r)
 		qStr := r.URL.Query()
-		//returnStr := ""
-		// main switch for incoming POST requests
 		switch qStr.Get("actiontype") {
 		case "navbutton":
 			//returnStr = NavButtonPressed(qStr.Get("xpos"), qStr.Get("ypos"))
 			w.Header().Set("Content-Type", "application/javascript")
 			w.Write([]byte(NavButtonPressed(qStr.Get("xpos"), qStr.Get("ypos"))))
 		}
-		//http.Error(w, returnStr, 200)
 		return
 	}
 	ts, err := template.ParseFiles("./ui/html/tradewars.html")
@@ -131,6 +129,11 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		http.SetCookie(w, &cookie)
 		http.Redirect(w, r, "/map", http.StatusSeeOther)
+		// add character if not already present
+		_, isPresent := playerMap[callsign]
+		if isPresent == false {
+			playerMap[callsign] = Player{5, 5}
+		}
 	}
 }
 
