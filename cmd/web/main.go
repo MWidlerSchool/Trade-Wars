@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"github.com/joho/godotenv"
 	//"github.com/gorilla/sessions"
 )
 
@@ -16,7 +17,8 @@ func main() {
 	mux.HandleFunc("/players", playersHandler)
 	fileServer := http.FileServer(http.Dir("./ui/static/"))
 	mux.Handle("/static/", http.StripPrefix("/static", fileServer))
-
+	
+	godotenv.Load()
 	var port = os.Getenv("PORT")
 
 	log.Println("Starting server on :" + port)
