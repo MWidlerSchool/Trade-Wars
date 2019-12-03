@@ -129,11 +129,6 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		http.SetCookie(w, &cookie)
 		http.Redirect(w, r, "/map", http.StatusSeeOther)
-		// add character if not already present
-		_, isPresent := playerMap[callsign]
-		if isPresent == false {
-			playerMap[callsign] = Player{5, 5}
-		}
 	}
 }
 
@@ -147,4 +142,9 @@ func mapHandler(w http.ResponseWriter, r *http.Request) {
 	callsign := cookie.Value
 	log.Println(callsign)
 	w.Write([]byte(callsign))
+	// add character if not already present
+	_, isPresent := playerMap[callsign]
+	if isPresent == false {
+		playerMap[callsign] = Player{5, 5}
+	}
 }
