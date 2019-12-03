@@ -1,5 +1,6 @@
 // init
 addButtons();
+updatePlayerLoc(5, 5);
 
 // hide inactive forms, show the active one
 function setActiveForm(targetString)
@@ -105,7 +106,7 @@ function updatePlayerLoc(xLoc, yLoc) {
 			if(xLoc === x && yLoc === y) {
 				document.getElementById(elementStr).innerHTML = "X";
 			} else {
-				document.getElementById(elementStr).innerHTML = "?";
+				document.getElementById(elementStr).innerHTML = " ";
 			}
 		}
 	}
