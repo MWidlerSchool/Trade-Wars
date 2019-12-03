@@ -87,6 +87,10 @@ function getCallsign() {
 	callHeader.innerHTML = callsign
 }
 
+function setNavMessage(str) {
+	document.getElementById("navMessageBoard").innerHTML = str;
+}
+
 // update which tile shows the player's location
 function updatePlayerLoc(xLoc, yLoc) {
 	var x = 0;
