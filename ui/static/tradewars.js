@@ -46,6 +46,8 @@ function navButtonPressed(x, y)
 // send a post request to the server
 function sendPost(actionType, keys, values)
 {
+	// clear the message board
+	setNavMessage("");
 	// if given a single key and value, make them lists
 	if(Array.isArray(keys) == false)
 	{

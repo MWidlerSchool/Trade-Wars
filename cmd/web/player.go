@@ -1,6 +1,6 @@
 package main
 
 type Player struct {
-	X int 5
-	Y int 5
+	X int
+	Y int
 }
