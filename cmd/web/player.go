@@ -1,7 +1,6 @@
 package main
 
 import (
-	//"log"
 	"net/http"
 )
 
@@ -16,4 +15,11 @@ func extractPlayerName(r *http.Request) string {
 		return ""
 	}
 	return cookie.Value
+}
+
+func shouldAllowMove(p Player, x int, y int) bool {
+	if p.X-x <= 1 && p.X-x >= -1 && p.Y-y <= 1 && p.Y-y >= -1 {
+		return true
+	}
+	return false
 }
