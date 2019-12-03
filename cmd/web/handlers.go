@@ -23,7 +23,7 @@ func home(w http.ResponseWriter, r *http.Request) {
 		case "navbutton":
 			//returnStr = NavButtonPressed(qStr.Get("xpos"), qStr.Get("ypos"))
 			w.Header().Set("Content-Type", "application/javascript")
-			w.Write([]byte(NavButtonPressed(qStr.Get("xpos"), qStr.Get("ypos"))))
+			w.Write([]byte(NavButtonPressed(playerName, qStr.Get("xpos"), qStr.Get("ypos"))))
 		}
 		return
 	}
