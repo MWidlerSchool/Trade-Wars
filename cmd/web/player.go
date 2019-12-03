@@ -17,7 +17,7 @@ func extractPlayerName(r *http.Request) string {
 			pName = strings.ReplaceAll(cookie.Value, "callsign=", "")
 		}
 	}*/
-	var cookie, err = r.Cookie("callsign")
+	var cookie, err = r.Cookie("Callsign")
 	if err != nil {
 		return ""
 	}
