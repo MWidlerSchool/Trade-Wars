@@ -1,12 +1,5 @@
 // init
 addButtons();
-// pressing enter presses name entry button
-document.getElementById("name-input").addEventListener("keyup", function(event) {
-	if (event.keyCode === 13) {
-		event.preventDefault();
-		document.getElementById("nameToNavB").click();
-	 }
-});
 
 // hide inactive forms, show the active one
 function setActiveForm(targetString)
