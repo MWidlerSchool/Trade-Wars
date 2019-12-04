@@ -16,13 +16,16 @@ func home(w http.ResponseWriter, r *http.Request) {
 		http.NotFound(w, r)
 		return
 	}
+	// posts to home get filtered and forwarded
 	if r.Method == http.MethodPost {
 		playerName := extractPlayerName(r)
 		qStr := r.URL.Query()
 		switch qStr.Get("actiontype") {
+		// player attempting to move
 		case "navbutton":
 			w.Header().Set("Content-Type", "application/javascript")
 			w.Write([]byte(NavButtonPressed(playerName, qStr.Get("xpos"), qStr.Get("ypos"))))
+		// naivgation page loaded, set player loc client side
 		case "navloaded":
 			w.Header().Set("Content-Type", "application/javascript")
 			w.Write([]byte(positionPlayer(playerName)))
