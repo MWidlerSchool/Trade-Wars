@@ -24,7 +24,6 @@ func home(w http.ResponseWriter, r *http.Request) {
 			w.Header().Set("Content-Type", "application/javascript")
 			w.Write([]byte(NavButtonPressed(playerName, qStr.Get("xpos"), qStr.Get("ypos"))))
 		case "navloaded":
-			//returnStr = NavButtonPressed(qStr.Get("xpos"), qStr.Get("ypos"))
 			w.Header().Set("Content-Type", "application/javascript")
 			w.Write([]byte(positionPlayer(playerName)))
 		}
@@ -148,6 +147,6 @@ func mapHandler(w http.ResponseWriter, r *http.Request) {
 	// add character if not already present
 	_, isPresent := playerMap[callsign]
 	if isPresent == false {
-		playerMap[callsign] = Player{5, 5}
+		playerMap[callsign] = Player{X: 4, Y: 4}
 	}
 }
