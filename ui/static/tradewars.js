@@ -41,12 +41,14 @@ function readInName()
 function navButtonPressed(x, y)
 {
 	sendPost("navbutton", ["xpos", "ypos"], [x, y]);
+
 }
 
 // set the board to reflect the player's existing position
 function positionPlayer()
 {
 	sendPost("navloaded", null, null);
+	sendPost("getOtherPlayers", null, null);
 }
 
 // send a post request to the server
@@ -111,8 +113,22 @@ function updatePlayerLoc(xLoc, yLoc) {
 			var elementStr = "button" + x + "_" + y;
 			if(xLoc === x && yLoc === y) {
 				document.getElementById(elementStr).innerHTML = "X";
-			} else {
+			}
+			else {
 				document.getElementById(elementStr).innerHTML = ".";
+			}
+			
+		}
+	}
+}
+
+function updateOtherPlayersLoc(xloc, yLoc){
+	console.log('you got to update other players')
+	for(y = 0; y < 10; y++){
+		for(x = 0; x <10; x++){
+			if (x == xLoc && y == yLoc){
+				var elementStr = "button" + x + "_" + y;
+				document.getElementById(elementStr).innerHTML = "Y";
 			}
 		}
 	}
