@@ -7,10 +7,21 @@ import (
 
 	"github.com/joho/godotenv"
 	//"github.com/gorilla/sessions"
+	"github.com/gorilla/websocket"
 )
 
 // global variable for player map
 var playerMap = make(map[string]Player)
+
+var clients = make(map[*websocket.Conn]bool)
+var broadcast = make(chan Message)
+var upgrader = websocket.Upgrader{}
+
+
+type Message struct {
+	Callsign string `json:"callsign"`
+	Message  string `json:"message"`
+}
 
 func main() {
 	mux := http.NewServeMux()
@@ -28,4 +39,15 @@ func main() {
 	log.Println("Starting server on :" + port)
 	err := http.ListenAndServe(":"+port, mux)
 	log.Fatal(err)
+
+	fs := http.FileServer(http.Dir("../public"))
+	http.Handle("/", fs)
+	http.HandleFunc("/ws", handleConnections)
+	go handleMessages()
+
+	log.Println("http server started on port" + port)
+	err = http.ListenAndServe(":"+port, nil)
+	if err != nil {
+		log.Fatal("ListenAndServe: ", err)
+	}
 }
