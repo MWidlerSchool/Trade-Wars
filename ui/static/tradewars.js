@@ -95,6 +95,7 @@ function getCallsign() {
 	callHeader.innerHTML = callsign
 }
 
+// set the message in the nav page message board
 function setNavMessage(str) {
 	document.getElementById("navMessageBoard").innerHTML = str;
 }
