@@ -21,9 +21,12 @@ func home(w http.ResponseWriter, r *http.Request) {
 		qStr := r.URL.Query()
 		switch qStr.Get("actiontype") {
 		case "navbutton":
-			//returnStr = NavButtonPressed(qStr.Get("xpos"), qStr.Get("ypos"))
 			w.Header().Set("Content-Type", "application/javascript")
 			w.Write([]byte(NavButtonPressed(playerName, qStr.Get("xpos"), qStr.Get("ypos"))))
+		case "navloaded":
+			//returnStr = NavButtonPressed(qStr.Get("xpos"), qStr.Get("ypos"))
+			w.Header().Set("Content-Type", "application/javascript")
+			w.Write([]byte(positionPlayer(playerName)))
 		}
 		return
 	}

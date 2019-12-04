@@ -26,7 +26,7 @@ func NavButtonPressed(playerName string, x string, y string) string {
 
 // update player location on page without notification
 func positionPlayer(playerName string) string {
-	return "updatePlayerLoc(" + playerMap[playerName].X + ", " + playerMap[playerName].Y + ");"
+	return "updatePlayerLoc(" + strconv.Itoa(playerMap[playerName].X) + ", " + strconv.Itoa(playerMap[playerName].Y) + ");"
 }
 
 func PostTest(w http.ResponseWriter, r *http.Request) {
