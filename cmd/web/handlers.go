@@ -83,24 +83,6 @@ func trade(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func chat(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/chat" {
-		http.NotFound(w, r)
-		return
-	}
-	ts, err := template.ParseFiles("./ui/html/chat.html")
-	if err != nil {
-		log.Println(err.Error())
-		http.Error(w, "Internal Server Error", 500)
-		return
-	}
-	err = ts.Execute(w, nil)
-	if err != nil {
-		log.Println(err.Error())
-		http.Error(w, "Internal Server Error", 500)
-	}
-}
-
 func playersHandler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/players" {
 		http.NotFound(w, r)
@@ -148,5 +130,56 @@ func mapHandler(w http.ResponseWriter, r *http.Request) {
 	_, isPresent := playerMap[callsign]
 	if isPresent == false {
 		playerMap[callsign] = Player{X: 4, Y: 4}
+	}
+}
+
+func chat(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path != "/chat" {
+		http.NotFound(w, r)
+		return
+	}
+	ts, err := template.ParseFiles("./ui/html/chat.html")
+	if err != nil {
+		log.Println(err.Error())
+		http.Error(w, "Internal Server Error", 500)
+		return
+	}
+	err = ts.Execute(w, nil)
+	if err != nil {
+		log.Println(err.Error())
+		http.Error(w, "Internal Server Error", 500)
+	}
+}
+
+func handleConnections(w http.ResponseWriter, r *http.Request) {
+	ws, err := upgrader.Upgrade(w, r, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer ws.Close()
+	clients[ws] = true
+	for {
+		var msg Message
+		err := ws.ReadJSON(&msg)
+		if err != nil {
+			log.Printf("error: %v", err)
+			delete(clients, ws)
+			break
+		}
+		broadcast <- msg
+	}
+}
+
+func handleMessages() {
+	for {
+		msg := <-broadcast
+		for client := range clients {
+			err := client.WriteJSON(msg)
+			if err != nil {
+				log.Printf("error: %v", err)
+				client.Close()
+				delete(clients, client)
+			}
+		}
 	}
 }
