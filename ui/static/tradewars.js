@@ -44,6 +44,12 @@ function navButtonPressed(x, y)
 	sendPost("navbutton", ["xpos", "ypos"], [x, y]);
 }
 
+// set the board to reflect the player's existing position
+function positionPlayer()
+{
+	sendPost("nav loaded", null, null);
+}
+
 // send a post request to the server
 function sendPost(actionType, keys, values)
 {
