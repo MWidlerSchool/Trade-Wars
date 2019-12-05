@@ -117,3 +117,12 @@ function updatePlayerLoc(xLoc, yLoc) {
 		}
 	}
 }
+
+const ws = new WebSocket('ws://' + window.location.host + '/ws');
+ws.onopen = function open() {
+	ws.send('Works!');
+}
+
+ws.onopen = function incoming(data) {
+	console.log(data);
+}
