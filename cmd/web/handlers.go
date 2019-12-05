@@ -27,8 +27,13 @@ func home(w http.ResponseWriter, r *http.Request) {
 			w.Write([]byte(NavButtonPressed(playerName, qStr.Get("xpos"), qStr.Get("ypos"))))
 		// naivgation page loaded, set player loc client side
 		case "navloaded":
+			log.Printf("Navloaded")
 			w.Header().Set("Content-Type", "application/javascript")
 			w.Write([]byte(positionPlayer(playerName)))
+		case "getOtherPlayers":
+			log.Printf("WOrked")
+			w.Header().Set("Content-Type", "application/javascript")
+			w.Write([]byte(otherPlayers()))
 		}
 		return
 	}
@@ -119,6 +124,9 @@ func playersHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func findOtherPlayers(w http.ResponseWriter, r *http.Request){
+
+}
 func mapHandler(w http.ResponseWriter, r *http.Request) {
 	var cookie, err = r.Cookie("callsign")
 	if err != nil {

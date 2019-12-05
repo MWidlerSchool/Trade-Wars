@@ -34,3 +34,10 @@ func positionPlayer(playerName string) string {
 func PostTest(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "POST received")
 }
+
+
+func otherPlayers() string{
+	//otherPlayers := []string{"2","3"}
+	return "updateOtherPlayersLoc(" + "2" + "," + "3" +");"
+
+}
