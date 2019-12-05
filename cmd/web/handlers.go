@@ -176,6 +176,7 @@ func handleConnections(w http.ResponseWriter, r *http.Request) {
 func handleMessages() {
 	for {
 		msg := <-broadcast
+		log.Printf("Worked")
 		for client := range clients {
 			err := client.WriteJSON(msg)
 			if err != nil {
